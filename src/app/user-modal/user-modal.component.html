@@ -1,0 +1,33 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Update user</h4>
+    <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div>
+      <label>Email address: </label>
+      <input type='text' [(ngModel)]='name'>
+    </div>
+    <div>
+      <!-- <label for="">Role:</label> -->
+      <app-select-role (changeSelect)=onChangeSelect($event) [optionList]='options' [defaultRoleId]='defaultRoleId'
+        labelText='Role'>
+      </app-select-role>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-outline-primary" (click)="close($event)">Save changes</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-outline-primary mr-2" (click)="open(content)">
+  <div>Edit</div>
+  <!-- TODO: Add fontawesome icon -->
+</button>
+
+<div class="space">
+  Texto: {{name}}
+</div>

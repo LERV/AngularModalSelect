@@ -1,0 +1,8 @@
+<div class="select-group">
+    <label class="select-group__label">{{labelText}}</label>
+    <select [(ngModel)]="selectedValue" class="select-group__input form-control" (change)="onChangeSelect()">
+        <option *ngFor="let option of optionList" [ngValue]="option.id">
+            {{option.role}}
+        </option>
+    </select>
+</div>
